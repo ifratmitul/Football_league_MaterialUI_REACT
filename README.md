@@ -1,4 +1,17 @@
+
+
+##Please find all three Task.
+
+##Task 1 & 2 is in the same React App and Task 3 is available in a different folder name "Task3". 
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+
+
 
 ## Available Scripts
 

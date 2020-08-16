@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+
+<body>
+    <h3>Output: </h3>
+    <p id="t"></p>
+    <p id="a"></p>
+    <p id="demo"></p>
+    <p id="author"></p>
+
+    
+    <script>
+        class Book {
+          
+            constructor(title, author) {
+            this.Title = title;
+            this.Author = author;
+          }
+          
+          getTitle(){
+              return "Title: " + this.Title;
+            }
+          getAuthor(){
+              return "Author:"  + this.Author;
+          }
+        
+        
+        }
+        
+        HP = new Book("Harry Potter", "J.K Rowling");
+        PP = new Book("Pride and Prejudice", "Jane Austen");
+        WP = new Book("War and Peace", "Leo Tolstoy");
+        H = new Book("Hamlet", "William ShakesPeare");
+
+        
+
+        document.getElementById("t").innerHTML = HP.Title;
+        document.getElementById("a").innerHTML = HP.Author;
+        document.getElementById("demo").innerHTML = HP.getTitle();
+        document.getElementById("author").innerHTML = HP.getAuthor();
+         
+        
+        </script>
+
+
+</body>
+</html>
