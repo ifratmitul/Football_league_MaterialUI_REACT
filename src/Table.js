@@ -3,8 +3,7 @@ import MaterialTable from 'material-table'
 import PLdata from'./Tdata'
 import Modal from 'react-modal'
 import { ModalBody, ModalFooter } from 'react-bootstrap'
-import ModalHeader from 'react-bootstrap/esm/ModalHeader'
-
+import MData from './ModalData'
 Modal.setAppElement('#root')
 
 
@@ -42,7 +41,8 @@ const Table =()=>{
             var teams = <p><a href = "#" id={team1} onClick ={(e) =>  abc(e) }>{team1}</a> VS <a href = "#"id={team2} onClick ={(e) =>  abc(e) }>{team2}</a></p>//PLdata[0]['rounds'][i]['matches'][j]['team1'] + ' vs ' + PLdata[0]['rounds'][i]['matches'][j]['team2']
             var sc1 = PLdata[0]['rounds'][i]['matches'][j]['score']['ft'][0]
             var sc2 = PLdata[0]['rounds'][i]['matches'][j]['score']['ft'][1]
-            var score = sc1 + '-' + sc2
+            var score = <p style = {{color:"red"}}>{sc1 + '-' + sc2}</p>
+            
             if (stats.hasOwnProperty(team1) === false){
                 stats[team1] = {}
                 stats[team1]['win']=0
@@ -97,10 +97,7 @@ const Table =()=>{
             title: 'Score', field: 'scores'
         }
     ]
-    //Modal start
- 
-    //Modal ends
-
+    
 
     return (
         <div>
@@ -115,6 +112,7 @@ const Table =()=>{
             />
             
             { <Modal isOpen = {modalIsOpen}
+            onRequestClose = {() => setModalIsOpen(false)}
             style={{
                 overlay: {
                   position: 'fixed',
@@ -139,26 +137,13 @@ const Table =()=>{
                   padding: '20px'
                 }
               }}>
-                <ModalHeader><h2>{team_name}</h2></ModalHeader>
-                
+                                
 
                 <ModalBody> 
-                    <table>
-                    <tr>
-                        <th>Played</th>
-                        <th>Win</th>
-                        <th>Los</th>
-                        <th>Draw</th>
-                    </tr>
-                    <tr>
-                        <td>{played}</td>
-                        <td>{wins}</td>
-                        <td>{losses}</td>
-                        <td>{draws}</td>
-                    </tr>
-                    
-                    </table></ModalBody>
-                <ModalFooter><button onClick ={() => setModalIsOpen(false)}>Close</button></ModalFooter>
+                     <MData team_name = {team_name} played = {played} wins = {wins} losses ={losses} draws = {draws}/> 
+                </ModalBody>
+                
+                <ModalFooter ><button onClick ={() => setModalIsOpen(false)}>Close</button></ModalFooter>
             </Modal>
             
     }
